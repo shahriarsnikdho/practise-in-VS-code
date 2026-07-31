@@ -1,0 +1,45 @@
+/* Navigation bar container */
+.navbar {
+  background-color: darkblue;
+  padding: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;  /* items stack top → bottom */
+  align-items: center;     /* center them horizontally */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Menu items */
+.nav-menu li {
+  margin: 0 15px;
+}
+
+/* Links styling */
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-menu a:hover {
+  background-color: black;
+  border-radius: 4px;
+}
+
+/* Responsive design: stack items vertically on small screens */
+@media (max-width: 600px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}

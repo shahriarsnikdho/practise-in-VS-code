@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Shahriar Snikdho | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: #1a1a2e; min-height: 100vh; overflow-x: hidden; }
+
+
+.bg { position: fixed; inset: 0; background: #bbd5ff; z-index: -1; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; filter: blur(75px); opacity: 0.40; animation: drift linear infinite; }
+.blob-1 { width: 500px; height: 500px; background: #93c5fd; top: -100px; left: -80px; animation-duration: 20s; }
+.blob-2 { width: 380px; height: 380px; background: #6ee7b7; bottom: -70px; right: -50px; animation-duration: 24s; animation-direction: reverse; }
+.blob-3 { width: 280px; height: 280px; background: #fcd34d; top: 45%; left: 58%; animation-duration: 16s; animation-delay: -6s; }
+
+header {
+  background: rgba(255,255,255,0.65); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(37,99,235,0.14);
+  padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 99;
+}
+header nav { display: flex; gap: 1.5rem; }
+header nav a { text-decoration: none; color: #555; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+header nav a:hover { color: #2563eb; }
+
+main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+hr { border: none; border-top: 1px solid rgba(37,99,235,0.14); margin: 2.5rem 0; }
+.sec-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #94a3b8; margin-bottom: 1.25rem; }
+
+.hero {
+  display: grid; grid-template-columns: 1fr 220px; gap: 2.5rem;
+  align-items: center; margin-bottom: 1rem;
+}
+.badge {
+  display: inline-block; background: rgba(37,99,235,0.10); color: #2563eb;
+  font-size: 0.74rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;
+}
+.hero-details h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+.hero-details h1 span { color: #2563eb; }
+.hero-details p { color: #555; font-size: 0.95rem; line-height: 1.7; }
+.socials { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
+.socials a {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 15px; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 600; text-decoration: none; color: white;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.socials a:hover { transform: translateY(-2px); opacity: 0.88; }
+.s-email { background: #ea4335; }
+.s-github { background: #24292e; }
+.s-facebook { background: #1877f2; }
+
+.hero-image i { font-size: 2.5rem; color: #bfdbfe; }
+
+.about-text { color: #444; line-height: 1.8; font-size: 0.93rem; }
+
+.qual-table-wrap {
+  background: rgba(255,255,255,0.65); border: 1px solid rgba(37,99,235,0.14);
+  border-radius: 12px; overflow: hidden; backdrop-filter: blur(8px);
+}
+.qual-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.qual-table th {
+  background: rgba(37,99,235,0.09); color: #2563eb; font-weight: 600;
+  text-align: left; padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(37,99,235,0.12);
+}
+.qual-table td { padding: 0.75rem 1.25rem; color: #444; border-bottom: 1px solid rgba(37,99,235,0.07); }
+.qual-table tr:last-child td { border-bottom: none; }
+.qual-table tr:hover td { background: rgba(37,99,235,0.04); }
+.result-pass { color: #10b981; font-weight: 600; }
+
+.contact-form-wrap {
+  background: rgba(255,255,255,0.65); border: 1px solid rgba(37,99,235,0.14);
+  border-radius: 14px; padding: 2rem; backdrop-filter: blur(8px);
+  max-width: 600px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+.form-group label { font-size: 0.8rem; font-weight: 600; color: #555; }
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.80); border: 1px solid rgba(37,99,235,0.20);
+  border-radius: 8px; padding: 10px 14px; font-size: 0.875rem; font-family: inherit;
+  color: #333; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.10);
+}
+.btn-submit {
+  background: #2563eb; color: white; border: none; border-radius: 8px;
+  padding: 10px 24px; font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: background 0.2s, transform 0.15s;
+}
+.btn-submit:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+footer { text-align: center; color: #94a3b8; font-size: 0.8rem; padding: 2rem; line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#qualification">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-details">
+      <div class="badge">Computer & Information Systems · DIU</div>
+      <h1>Hi, I'm <span>Shahriar Snikdho<b>!</b></span></h1>
+      <p>A CIS student passionate about software development, emerging technologies, and building digital solutions that create real-world impact.</p>
+      <div class="socials" id="contact-links">
+        <a href="mailto:253-16-021@diu.edu.bd" class="s-email"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="https://github.com/shahriarsnikdho" target="_blank" class="s-github"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.facebook.com/shahriarsnikdho" target="_blank" class="s-facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <i class="fa-solid fa-user"></i>
+      <img src="snikdho.png" style="width:250px;height:250px;border-radius:16px;object-fit:cover;"/>
+    </div>
+  </section>
+
+  <hr id="about"/>
+  <section>
+    <p class="sec-title">About Me</p>
+    <p class="about-text">Hi, I'm Shahriar Sanjid Snikdho, a Computer and Information Systems (CIS) student at Daffodil International University with a strong passion for technology, problem-solving, and continuous learning. I am interested in software development, emerging technologies, and building digital solutions that create real-world impact. Throughout my academic journey, I have actively participated in departmental activities, volunteering programs, and student community initiatives, which have helped me develop leadership, teamwork, and communication skills. Beyond academics, I enjoy exploring entrepreneurship, particularly in the e-commerce sector, and continuously seek opportunities to expand my knowledge in business and technology. My goal is to build innovative solutions, contribute to meaningful projects, and grow into a skilled technology professional capable of making a positive difference. I believe in learning by doing, embracing challenges, and constantly improving myself both personally and professionally.</p>
+  </section>
+
+  <hr id="qualification"/>
+  <section>
+    <p class="sec-title">Academic Qualification</p>
+    <div class="qual-table-wrap">
+      <table class="qual-table">
+        <thead>
+          <tr>
+            <th>Degree / Exam</th>
+            <th>Institution</th>
+            <th>Board / University</th>
+            <th>Year</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B.Sc. in CIS (Running)</td>
+            <td>Daffodil International University</td>
+            <td>DIU</td>
+            <td>2025 – Present</td>
+            <td class="result-pass">4.00(1st & 2nd sem)</td>
+          </tr>
+          <tr>
+            <td>HSC</td>
+            <td>Rajuk Uttara Model College</td>
+            <td>Dhaka Board</td>
+            <td>2024</td>
+            <td class="result-pass">5.00</td>
+          </tr>
+          <tr>
+            <td>SSC</td>
+            <td>Safiuddin Sarker Academy & College</td>
+            <td>Dhaka Board</td>
+            <td>2022</td>
+            <td class="result-pass">5.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr id="contact"/>
+  <section>
+    <p class="sec-title">Contact Form</p>
+    <div class="contact-form-wrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Donald"/>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Trump"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="donald.usa@gmail.com"/>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Anything you wanna know"/>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Write your message here..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="alert('Labh nai bhai , online korar budget nai!')">
+        <i class="fa-solid fa-paper-plane"></i>&nbsp; Send Message
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer dir="ltr">
+  Designed & Built by Shahriar Sanjid Snikdho<br>
+  CIS-23 | DIU · 2025
+</footer>
+
+</body>
+</html>
